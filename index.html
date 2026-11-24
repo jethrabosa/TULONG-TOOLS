@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#173f55" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>TulongTools</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="tulong-tools-icon-mask.png" />
+    <link rel="apple-touch-icon" href="tulong-tools-icon-mask.png" />
+    <link rel="stylesheet" href="styles.css?v=27" />
+  </head>
+  <body>
+    <header class="topbar">
+      <button class="brand" data-view="catalog" aria-label="TulongTools home"><span class="brand-logo-mark" aria-hidden="true"></span></button>
+    </header>
+
+    <main id="app"></main>
+    <script src="app.js?v=26"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("./sw.js").catch(error => {
+            console.error("Could not register the app service worker.", error);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
